@@ -1,6 +1,3 @@
-//abbraccio :"price_1Oj3LGEcXp5SRF9auoNWVpGc";
-//bis : "price_1Oj3MOEcXp5SRF9aoGN9S37o";
-
 const express = require("express");
 let cors = require("cors");
 const stripe = require("stripe")(
@@ -15,7 +12,6 @@ app.use(express.json());
 app.post("/checkout", async (req, res) => {
   const items = req.body.items;
   let lineItems = [];
-  console.log(req.body.items);
   items.forEach((item) => {
     lineItems.push({
       price: item.stripe,
@@ -39,7 +35,6 @@ app.post("/checkout", async (req, res) => {
 app.post("/buynow", async (req, res) => {
   const items = req.body.items;
   let lineItems = [];
-  console.log(req.body.items);
   items.forEach((item) => {
     lineItems.push({
       price: item.stripe,
